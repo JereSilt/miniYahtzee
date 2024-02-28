@@ -15,7 +15,7 @@ import {
     BONUS_POINTS,
 } from '../constants/Game'
 
-export default Home = (navigation) => {
+export default Home = ( {navigation} ) => {
 
     const [name, setName] = useState('')
     const [hasName, setHasName] = useState(false)
@@ -27,11 +27,51 @@ export default Home = (navigation) => {
         }
     }
 
+    
+
   return (
-    <View >
-      <Text >
-        Honme will be here...
-      </Text>
-    </View>
+    <>
+      <Header />
+      <View>
+        <MaterialCommunityIcons
+         name="information" 
+         size={90} 
+         color="steelblue" />
+         {!hasName ?
+          <> 
+            <Text>For scoreboard enter your name!</Text>
+            <TextInput
+              onChangeText={setName}
+              autoFocus={true}
+              />
+              <Pressable
+              onPress={() => handleName(name)}>
+              <Text>OK</Text>
+              </Pressable>
+            </>
+          :
+            <>
+              <Text>Rules of the game</Text>
+              <Text multiline="true">
+                THE GAME: Upper section of the classic Yahtzee
+                dice game. You have {NBR_OF_DICES} dices and
+                for the every dice you have {NBR_OF_THROWS}
+                throws. After each throw you can keep dices in
+                order to get same dice spot counts as many as
+                possible. In the end of the turn you must select
+                your points from {MIN_SPOT} to {MAX_SPOT}.
+                Game ends when all points have been selected.
+                The order for selecting those is free.
+                </Text>
+                <Text>Good luck, {name}</Text>
+                <Pressable
+                onPress={() => navigation.navigate("Gameboard")}>
+                  <Text>Start game</Text>
+                </Pressable>
+              </>
+            }
+      </View>
+      <Footer />
+    </>
   )
 }
