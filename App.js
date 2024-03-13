@@ -40,7 +40,8 @@ export default function App() {
         })}
       >
         <Tab.Screen name="Home" component={Home} 
-        options={{tabBarStyle: {display: "none"}}}/>
+        options={{tabBarStyle: {display: "none"}}} 
+        />
         <Tab.Screen name="Gameboard" component={Gameboard}/>
         <Tab.Screen name="Scoreboard" component={Scoreboard}/>
         
