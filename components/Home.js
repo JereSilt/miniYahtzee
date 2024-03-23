@@ -65,7 +65,7 @@ export default Home = ( {navigation} ) => {
                 </Text>
                 <Text>Good luck, {name}</Text>
                 <Pressable
-                onPress={() => navigation.navigate("Gameboard")}>
+                onPress={() => navigation.navigate("Gameboard", {player: name})}>
                   <Text>Start game</Text>
                 </Pressable>
               </>
